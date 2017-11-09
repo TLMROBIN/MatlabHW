@@ -1,0 +1,7 @@
+column6=ones(5,1);
+line12=zeros(2,5);
+line3=(1:5);
+line4=(0:2:8);
+line5=[8,7,2,5,9];
+matrix1=[line12;line3;line4;line5];
+matrix2=[matrix1 column6]
