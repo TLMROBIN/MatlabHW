@@ -1,0 +1,7 @@
+format long
+pi0yuan=((2*(2^0.5))/9801)*1103;
+pi0=1/pi0yuan
+wucha0=pi-pi0
+pi1yuan=((2*(2^0.5))/9801)*(1103+(((factorial(4))*(1103+26390))/(396^4)));
+pi1=1/pi1yuan
+wucha1=pi-pi1
