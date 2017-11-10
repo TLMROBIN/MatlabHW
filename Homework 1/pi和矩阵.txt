@@ -1,0 +1,24 @@
+>> k_pi=0;
+>> syms new_pi2 
+>> [new_pi2]=solve(1/new_pi2==((2*2^0.5)/9801)*factorial(4*k_pi)*(1103+26390*k_pi)/396^(4*k_pi)*(factorial(k_pi))^4) ;
+>> new_pi_1=vpa(new_pi2) 
+
+
+
+>> k_pi1=1;
+>> syms new_pi1
+>> [new_pi1]=solve(1/new_pi1==((2*2^0.5)/9801)*((factorial(4*k_pi1)*(1103+26390*k_pi1)/396^(4*k_pi1)*(factorial(k_pi1))^4)+(factorial(4*k_pi)*(1103+26390*k_pi)/396^(4*k_pi)*(factorial(k_pi))^4))) ; 
+>> new_pi_2=vpa(new_pi1)
+
+>> wucha1=new_pi_1-vpa(pi) 
+>> wucha2=new_pi_2-vpa(pi) 
+
+
+
+>> m_a=zeros(2,5) ;
+>> m_b=ones(5,1);
+>> m_c=[1:5];
+>> m_d=[0:2:8];
+>> m_e=[8,7,2,5,9] ;
+>> M_first=[m_a;m_c;m_d;m_e];
+>> M=[M_first m_b]
