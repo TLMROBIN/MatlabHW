@@ -1,0 +1,17 @@
+%Homework1
+pi_cal=[1,1];
+relative_error=[1,1];
+for N=0:1:1;
+  add=0.0;
+  for k=0:1:N;
+    add=add+2*2^(0.5)/9801*(factorial(4*k)*(1103+26390*k))/(factorial(k)^4*396^(4*k));
+  end
+  calpi=1/add;
+  pi_cal(N+1)=calpi;
+  relative_error(N+1)=(calpi-pi)/pi;
+end
+format long
+pi_cal
+relative_error
+
+
