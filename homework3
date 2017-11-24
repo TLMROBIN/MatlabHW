@@ -1,0 +1,113 @@
+%这只是一个未加注释的初级版！！！
+%homework3_3 201611160105 吕益鹏
+function [error,value]=c_value_error(F)
+c_value(F);
+dev(F);
+end
+
+%homework3_2 201611160105 吕益鹏
+function Value=c_value(F)
+key2=input('是否输入变量（1/2）');
+Value=F;
+while(key2==1)
+    var3=input('请输入变量: ','s');
+    vvar1=input('请输入变量的值： ');
+    var3=sym(var3);
+    Value=subs(Value,var3,vvar1);
+    key2=input('是否输入变量（1/2）');
+    %Value=Value+oo;
+end
+key3=input('是否输入常量（1/2）');
+while(key3==1)
+    chr2=input('请输入常量: ','s');
+    cchr1=input('请输入常量的值： ');
+    chr2=sym(chr2);
+    Value=subs(Value,chr2,cchr1);
+    key3=input('是否输入常量（1/2）');
+    %Value=Value+jj;
+end
+Value=double(Value);
+disp('函数值为：')
+disp(Value)
+end
+
+%homework3_1 201611160105 吕益鹏
+function ERROR=dev(F)
+key=input('是否输入变量（1/2）');
+ERROR=0;
+while(key==1)
+    var1=input('请输入变量: ','s');
+    vvar=input('请输入变量的值： ');
+    dd=input('请输入变量误差的值：');
+    var1=sym(var1);
+    d=sym('d');
+    Error=((diff(F,var1,1))*d)^2;
+    Error=subs(Error,{var1,d},{vvar,dd});
+    ERROR=ERROR+Error;
+    %ERROR=subs(ERROR,var1,vvar);
+    key=input('是否输入变量（1/2）');
+end
+disp('此时将变量都看作常量')
+key1=input('是否输入常量（1/2）');
+while(key1==1)
+    chr1=input('请输入常量: ','s');
+    cchr=input('请输入常量的值： ');
+    chr1=sym(chr1);
+    ERROR=subs(ERROR,chr1,cchr);
+    key1=input('是否输入常量（1/2）');
+end
+ERROR=ERROR^(1/2);
+%ERROR=double(ERROR);
+disp('误差为：')
+disp(ERROR)
+end
+
+%调用程序（实例）
+f=sym('G*m1*m2/R^2')；
+ c_value_error(f)
+是否输入变量（1/2）1
+请输入变量: m1
+请输入变量的值： 5.9e24
+是否输入变量（1/2）1
+请输入变量: m2
+请输入变量的值： 2e30
+是否输入变量（1/2）1
+请输入变量: R
+请输入变量的值： 1.5e11
+是否输入变量（1/2）2
+是否输入常量（1/2）1
+请输入常量: G
+请输入常量的值： 6.67e-11
+是否输入常量（1/2）2
+函数值为：
+   3.4980e+22
+
+是否输入变量（1/2）1
+请输入变量: m1
+请输入变量的值： 5.9e24
+请输入变量误差的值：0.1e24
+是否输入变量（1/2）1
+请输入变量: m2
+请输入变量的值： 2e30
+请输入变量误差的值：0.2e30
+是否输入变量（1/2）1
+请输入变量: R
+请输入变量的值： 1.5e11
+请输入变量误差的值：0.01e11
+是否输入变量（1/2）2
+此时将变量都看作常量
+是否输入常量（1/2）1
+请输入常量: m1
+请输入常量的值： 5.9e24
+是否输入常量（1/2）1
+请输入常量: m2
+请输入常量的值： 2e30
+是否输入常量（1/2）1
+请输入常量: R
+请输入常量的值： 1.5e11
+是否输入常量（1/2）1
+请输入常量: G
+请输入常量的值： 6.67e-11
+是否输入常量（1/2）2
+误差为：
+   3.5785e+21
