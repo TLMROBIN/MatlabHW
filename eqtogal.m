@@ -1,0 +1,9 @@
+function [l,b]=eqtogal(ra,dec)
+raGP=192.85948;
+decGP=27.12825;
+lCP=122.932;
+sinb=sin(decGP).*sin(dec)+cos(decGP).*cos(ra-raGP);
+b=asin(sinb);
+sinlCPminusl=cos(ra).*sin(ra-raGP)/cos(b);
+lCPminusl=asin(sinlCPminusl);
+l=lCP-lCPminusl;
