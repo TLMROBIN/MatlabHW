@@ -17,6 +17,6 @@ for n =1:num(2);
 end
 for n = 1:num(2);
     sub_func = sym(diff(FUNC,sym(argument(n))));%偏导
-    errors2 = errors2+(subs(sub_func,{argument},{org_val})*org_errs(n))^2;%误差传递公式，现不能运行……让我再想想
+    errors2 = errors2+(subs(sub_func,argument{:},org_val{:})*org_errs(n))^2;%误差传递公式
 end
 errors = double(errors2)^0.5;
