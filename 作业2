@@ -1,0 +1,9 @@
+function [result]=wanyouyingli(m1n,m2n,Rn)
+m1=sym('m1');
+m2=sym('m2');
+R=sym('R');
+G=6.67*10^(-11);
+result=G*m1*m2/R^2;
+result=subs(result,'m1',m1n);
+result=subs(result,'m2',m2n);
+result=subs(result,'R',Rn);
