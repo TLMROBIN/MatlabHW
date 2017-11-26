@@ -1,4 +1,4 @@
-】function errors = err(func,argument,org_errs,org_val)
+function errors = err(func,argument,org_errs,org_val)
 %errors = err(func,argument,org_errs),返回一个运用误差传递公式计算得出的误差值。
 %输入变量说明：
 %func 字符型变量 函数表达式，等式右边部分
