@@ -1,17 +1,22 @@
-function errors = err(func,argument,org_errs)
-%errors = err(func,argument,org_errs),·µ»ØÒ»¸öÔËÓÃÎó²î´«µİ¹«Ê½¼ÆËãµÃ³öµÄÎó²îÖµ¡£
-%ÊäÈë±äÁ¿ËµÃ÷£º
-%func ×Ö·ûĞÍ±äÁ¿ º¯Êı±í´ïÊ½£¬µÈÊ½ÓÒ±ß²¿·Ö
-%argument ×Ö·ûĞÍ¾ØÕó ×ÔÉí´øÎó²îµÄ±äÁ¿Ãû
-%org_errs ÊıÖµĞÍ¾ØÕó ±äÁ¿Îó²îÖµ£¬×¢ÒâÓëargumentÒ»Ò»¶ÔÓ¦
-%Àı£º err('a+2*b',['a','b'],[1,1])
+function errors = err(func,argument,org_errs,org_val)
+%errors = err(func,argument,org_errs),è¿”å›ä¸€ä¸ªè¿ç”¨è¯¯å·®ä¼ é€’å…¬å¼è®¡ç®—å¾—å‡ºçš„è¯¯å·®å€¼ã€‚
+%è¾“å…¥å˜é‡è¯´æ˜ï¼š
+%func å­—ç¬¦å‹å˜é‡ å‡½æ•°è¡¨è¾¾å¼ï¼Œç­‰å¼å³è¾¹éƒ¨åˆ†
+%argument å­—ç¬¦å‹çŸ©é˜µ è‡ªèº«å¸¦è¯¯å·®çš„å˜é‡å
+%org_errs æ•°å€¼å‹çŸ©é˜µ å˜é‡è¯¯å·®å€¼ï¼Œæ³¨æ„ä¸argumentä¸€ä¸€å¯¹åº”ï¼Œå¦‚æ²¡æœ‰è¯¯å·®ï¼Œè¾“å…¥0
+%org_val æ•°å€¼å‹çŸ©é˜µ å˜é‡å€¼ï¼Œæ³¨æ„ä¸argumentä¸€ä¸€å¯¹åº”
+%ä¾‹ï¼š err('a+2*b',['a','b'],[1,1])
 %ans =
 %
 %   2.2361e+00
-num = size(argument);%µÃµ½´øÎó²î±äÁ¿ÊıÁ¿
+num = size(argument);%å¾—åˆ°å¸¦è¯¯å·®å˜é‡æ•°é‡
 FUNC = sym(func);
 errors2 = 0;
+for n =1:num(2);
+    sym(argument(n))
+end
 for n = 1:num(2);
-    errors2 = errors2+(diff(FUNC,argument(n))*org_errs(n))^2;%Îó²î´«µİ¹«Ê½
+    sub_func = sym(diff(FUNC,sym(argument(n))));%åå¯¼
+    errors2 = errors2+(subs(sub_func,{argument},{org_val})*org_errs(n))^2;%è¯¯å·®ä¼ é€’å…¬å¼ï¼Œç°ä¸èƒ½è¿è¡Œâ€¦â€¦è®©æˆ‘å†æƒ³æƒ³
 end
 errors = double(errors2)^0.5;
