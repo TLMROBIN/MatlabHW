@@ -1,8 +1,8 @@
-m1=input('ÇëÊäÈëm1:');
-m2=input('ÇëÊäÈëm2:');
-R=input('ÇëÊäÈëR:');
-deltam1=input('ÇëÊäÈëdeltam1:');
-deltam2=input('ÇëÊäÈëdeltam2:');
-deltaR=input('ÇëÊäÈëdeltaR:');
+m1=input('è¯·è¾“å…¥m1:');
+m2=input('è¯·è¾“å…¥m2:');
+R=input('è¯·è¾“å…¥R:');
+deltam1=input('è¯·è¾“å…¥deltam1:');
+deltam2=input('è¯·è¾“å…¥deltam2:');
+deltaR=input('è¯·è¾“å…¥deltaR:');
 display(wyyl(m1,m2,R))
 display(wyylwc(m1,m2,R,deltam1,deltam2,deltaR))
