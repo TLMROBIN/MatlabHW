@@ -1,4 +1,4 @@
-%这只是一个未加注释的初级版！！！
+%这是一个可以对任意公式适用的初级版本！！！
 %homework3_3 201611160105 吕益鹏
 function [error,value]=c_value_error(F)
 c_value(F);
@@ -6,6 +6,9 @@ dev(F);
 end
 
 %homework3_2 201611160105 吕益鹏
+%F必须为符号变量的公式
+%各种看似英文缩写的都是公式使用过程中的中间变量
+%大写开头为最终变量的显示
 function Value=c_value(F)
 key2=input('是否输入变量（1/2）');
 Value=F;
@@ -32,6 +35,8 @@ disp(Value)
 end
 
 %homework3_1 201611160105 吕益鹏
+%大写开头表示该变量的最终显示结果，小写开头表示该变量中间的使用
+%F必须为符号变量的公式
 function ERROR=dev(F)
 key=input('是否输入变量（1/2）');
 ERROR=0;
@@ -47,7 +52,11 @@ while(key==1)
     %ERROR=subs(ERROR,var1,vvar);
     key=input('是否输入变量（1/2）');
 end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+disp('下面这句话十分重要')
 disp('此时将变量都看作常量')
+%我还没想出如何不用这种方法算叠加公式
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 key1=input('是否输入常量（1/2）');
 while(key1==1)
     chr1=input('请输入常量: ','s');
