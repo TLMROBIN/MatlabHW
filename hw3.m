@@ -1,0 +1,10 @@
+m1=input('请输入质量(kg)m1=');
+dm1=input('请输入质量误差(kg)dm1=');
+m2=input('请输入质量(kg)m2=');
+dm2=input('请输入质量误差(kg)dm2=');
+r=input('请输入距离(m)r=');
+dr=input('请输入质量误差(m)dr=');
+display('万有引力(N)为\n')
+F=yl(m1,m2,r)
+display('误差(N)为\n')
+DF=wc(m1,m2,r,dm1,dm2,dr)
