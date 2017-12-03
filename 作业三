@@ -1,0 +1,13 @@
+dataall=importdata('exp_data.txt',' ',21);
+dataallnew=dataall(3:20);
+for n=1:3
+    time(n)=dataallnew(6*n-5);
+    day(n)=dataallnew(6*n-4);
+end
+data1=dataallnew(3:6);
+data2=dataallnew(9:12);
+data3=dataallnew(15:18);
+clear dataall
+clear dataallnew
+clear n
+save
