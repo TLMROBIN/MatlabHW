@@ -1,24 +1,24 @@
 function rlamost()
 data=importdata('lamost.csv',',',1);
 teff=data.data(:,3);
-logg=data.data(:,5);                   %µ¼Èëteff,loggÁ½ÁĞ
+logg=data.data(:,5);                   %å¯¼å…¥teff,loggä¸¤åˆ—
 
-matlog1=logg>4;                        %¼ÇÏÂlogg>4µÄÖ¸±ê
-matlog2=(teff>4000 & teff<8000);       %¼ÇÏÂ4000<teff<8000µÄÖ¸±ê
-matlog=logical(matlog1.*matlog2);      %È¡Á½¸öÖ¸±ê¶¼Âú×ãµÄ²¿·Ö£¬ÓÃ³ËÀ´×ö£¬ÒòÎª1*1=1,1*0=0,0*0=0
+matlog1=logg>4;                        %è®°ä¸‹logg>4çš„æŒ‡æ ‡
+matlog2=(teff>4000 & teff<8000);       %è®°ä¸‹4000<teff<8000çš„æŒ‡æ ‡
+matlog=logical(matlog1.*matlog2);      %å–ä¸¤ä¸ªæŒ‡æ ‡éƒ½æ»¡è¶³çš„éƒ¨åˆ†ï¼Œç”¨ä¹˜æ¥åšï¼Œå› ä¸º1*1=1,1*0=0,0*0=0
 
 ra=data.data(matlog,1);
 dec=data.data(matlog,2);
 teff=teff(matlog);
 logg=logg(matlog);
 feh=data.data(matlog,7);
-rverr=data.data(matlog,10);            %´Ódata.dataÖĞ¶ÁÈ¡Âú×ãÉÏÃæÅĞ¶ÏÌõ¼şµÄra,dec,fej,rverrÁĞ,teff,loggÒ²ÖØĞÂ¸³Öµ
+rverr=data.data(matlog,10);            %ä»data.dataä¸­è¯»å–æ»¡è¶³ä¸Šé¢åˆ¤æ–­æ¡ä»¶çš„ra,dec,fej,rverråˆ—,teff,loggä¹Ÿé‡æ–°èµ‹å€¼
 
 fig1=figure(1);
-set(gcf,'position',[50 50 800 600])    %ÉèÖÃ»­²¼Î»ÖÃ,´óĞ¡
+set(gcf,'position',[50 50 800 600])    %è®¾ç½®ç”»å¸ƒä½ç½®,å¤§å°
 
 subplot(2,2,1)
-scatter(ra,dec,1,[0 0.5 0.5],'filled') %»­·ûºÏÌõ¼şµÄ×ø±ê·Ö²¼Í¼
+scatter(ra,dec,1,[0 0.5 0.5],'filled') %ç”»ç¬¦åˆæ¡ä»¶çš„åæ ‡åˆ†å¸ƒå›¾
 title('Distribution of Coordinate')
 xlabel('RA')
 ylabel('DEC')
@@ -27,7 +27,7 @@ set(leg1,'position',[0.4 0.93 0.1 0.03])
 set(gca,'xlim',[80,90],'ylim',[20,30],'xtick',80:2:90,'fontsize',9)
 
 subplot(2,2,3)
-scatter(teff,logg,2,feh,'filled') %»­·ûºÏÌõ¼şµÄteff-loggÍ¼£¬ÓÃfeh±íÊ¾ÑÕÉ«
+scatter(teff,logg,2,feh,'filled') %ç”»ç¬¦åˆæ¡ä»¶çš„teff-loggå›¾ï¼Œç”¨fehè¡¨ç¤ºé¢œè‰²
 c=colorbar;
 c.Label.String='feh';
 title('target''s logg-teff ')
@@ -38,7 +38,7 @@ set(leg2,'position',[0.35 0.46 0.1 0.03])
 set(gca,'xdir','reverse','fontsize',9)
 
 subplot(1,2,2)
-hist(rverr(rverr<50),50,'k')      %»­rverr<50µÄ·Ö²¼Í¼
+hist(rverr(rverr<50),50)      %ç”»rverr<50çš„åˆ†å¸ƒå›¾
 title('Histogram of RVerr')
 xlabel('RVerr')
 ylabel('number')
@@ -46,6 +46,6 @@ legend('number')
 set(gca,'fontsize',9)
 h=findobj(gca,'Type','patch');
 h.FaceColor=[0 0.5 0.5];
-h.EdgeColor='w';                   %ÉèÖÃÑÕÉ«
+h.EdgeColor='w';                   %è®¾ç½®é¢œè‰²
 
-saveas(fig1,'lamostDataPrcoessedBySxr.jpg') %±£´æÍ¼Æ¬
+saveas(fig1,'lamostDataPrcoessedBySxr.jpg') %ä¿å­˜å›¾ç‰‡
