@@ -1,0 +1,43 @@
+%homework5 201611160105 吕益鹏
+dt=importdata('lamost.csv');
+DATA=dt.data;
+ra=DATA(:,1);
+dec=DATA(:,2);
+k=1;
+p=1;
+for i=1:length(DATA)%缩小区间
+if(DATA(i,3)>4000&&DATA(i,3)<8000&&DATA(i,5)>4)
+teff1(k)=DATA(i,3);
+logg1(k)=DATA(i,5);
+k=k+1;
+end
+end
+for i=1:length(DATA)%选择50以内的rverr
+if(DATA(i,10)<50)
+    rverr(p)=DATA(i,10);
+    p=p+1;
+end
+end
+feh1=linspace(1,30,length(ra));
+feh2 = linspace(1,30,length(teff1));
+fig1=figure(1);
+scatter(ra,dec,[],feh1);
+xlabel('ra');
+ylabel('dec');
+title('赤经赤纬图散点图');
+legend('位置');
+saveas(fig1,'fig1.jpg');
+fig2=figure(2);
+scatter(teff1,logg1,[],feh2);
+xlabel('teff');
+ylabel('logg');
+title('teff与logg散点图');
+legend('位置');
+saveas(fig2,'fig2.jpg')
+fig3=figure(3);
+hist(rverr);
+xlabel('分类区间');
+ylabel('区间内值的个数');
+title('rverr直方图');
+legend('面积');
+saveas(fig3,'fig3.jpg');
