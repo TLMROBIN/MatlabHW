@@ -20,3 +20,4 @@ date=char(date1,date2,date3)
 datas=[datas1;datas2;datas3]
 
 save('observedata.mat','title','number','time','date','datas')  %±£´æ
+fclose(fid);
