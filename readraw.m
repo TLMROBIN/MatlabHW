@@ -13,27 +13,28 @@ dec=new_mat(:,2)'
 teff=new_mat(:,3)'
 logg=new_mat(:,5)'
 feh=new_mat(:,7)'
-rveer=new_mat(:,10)'
+rverr=new_mat(:,10)'
 figure
 subplot(2,2,1)
 plot(ra,dec,'k.','MarkerSize',10)
 xlabel('ra')
 ylabel('dec')
-legend('dot')
+legend('position')
 title('ra-dec')
 subplot(2,2,2)
-scatter(teff,logg,[],feh)
+scatter(teff,logg,2,feh，'.')
 xlabel('teff')
 ylabel('logg')
-legend('dot')
+legend('star')
 title('teff-logg')
+colorbar
 subplot(2,2,3)
-hist(rveer,4000)
+hist(rverr,4000)
 xlim([0,50])
-xlabel('rveer')
+xlabel('rverr')
 ylabel('number')
 title('histogram of rveer')
-legend('strip')
+legend('rverr')
 
 
 
