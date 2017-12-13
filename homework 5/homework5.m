@@ -1,5 +1,4 @@
 %homework5
-%为什么我importdata进来的是结构体？？而且调出显示的时候比原始数据小10……3倍？？？
 clear;clc
 a=importdata('lamost.csv');
 ra = a.data(:,1);
