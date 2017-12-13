@@ -22,7 +22,7 @@ ylabel('dec');
 title('ra-dec');
 legend('every spot represent an observation')
 subplot (1,3,2)
-scatter(data.data(:,3),data.data(:,5),1,'feh')
+scatter(data.data(:,3),data.data(:,5),1,data.data(:,7))
 xlabel('teff');
 ylabel('logg');
 title('teff-logg');
