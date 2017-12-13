@@ -1,5 +1,5 @@
 %homework5
-%ÎªÊ²Ã´ÎÒimportdata½øÀ´µÄÊÇ½á¹¹Ìå£¿£¿¶øÇÒµ÷³öÏÔÊ¾µÄÊ±ºò±ÈÔ­Ê¼Êı¾İĞ¡10¡­¡­3±¶£¿£¿£¿
+%ä¸ºä»€ä¹ˆæˆ‘importdataè¿›æ¥çš„æ˜¯ç»“æ„ä½“ï¼Ÿï¼Ÿè€Œä¸”è°ƒå‡ºæ˜¾ç¤ºçš„æ—¶å€™æ¯”åŸå§‹æ•°æ®å°10â€¦â€¦3å€ï¼Ÿï¼Ÿï¼Ÿ
 clear;clc
 a=importdata('lamost.csv');
 ra = a.data(:,1);
@@ -10,7 +10,7 @@ rverr = a.data(:,10);
 feh = a.data(:,7);
 
 for i = 1:length(logg)
-    if logg(i)<=4 || 4000>teff(i) && teff(i)>8000
+    if logg(i)<=4 || 4000>teff(i) || teff(i)>8000
         ra(i) = -99;
         dec(i) = -99;
         teff(i) = -99;
