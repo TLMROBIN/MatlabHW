@@ -1,0 +1,28 @@
+%homework6 201611160105 吕益鹏
+function s=jifen(f) 
+x=sym('x');
+a=input('请输入下限:');
+b=input('请输入上限:');
+s=0;
+h1=0;
+h2=(b-a)/1000;
+h=(b-a)/1000;
+for i=1:1000
+    k1=subs(f,x,h1);
+    k2=subs(f,x,h2);
+    s=s+(h/2)*(k1+k2);
+    h1=h1+h;
+    h2=h2+h;
+end
+s=double(s);
+format long
+
+%运行实例
+%f=sym('cos(x)');
+%jifen(f)
+%请输入下限:0
+%请输入上限:pi/2
+
+%ans =
+
+%   0.999999794383233
