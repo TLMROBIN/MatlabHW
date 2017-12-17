@@ -5,29 +5,30 @@ function[s]=txf(x,y,a,b)
 
 il=b-a; %Interval length
 
+
+%Take out the data within the integral interval
 new_x=[];
 new_y=[];
 szx=size(x);
-for i=1:szx(2) %Take out the data within the integral interval
+for i=1:szx(2) 
     if x(i)>=a && x(i)<=b
         new_x=[new_x,x(i)];
         new_y=[new_y,y(i)];
     end
 end
 
-sznx=size(new_x); 
-if sznx(2)~=101 %Make sure that there are 100 bins in the integral interval
-    xq=[a:(il/100):b];
-    yq=interp1(new_x,new_y,xq,'spline');
-    new_x=xq;
-    new_y=yq;
-end
 
-szny=size(new_y);%Trapezoid Method
+%Make sure that there are 100 bins in the integral interval
+sznx=size(new_x); 
+xq=[a:(il/100):b];
+yq=interp1(new_x,new_y,xq,'spline');
+
+
+szyq=size(yq);%Trapezoid Method
 s=0;
 h=il/100;
-for i=1:szny(2)-1;
-    s=s+1/2*h*(new_y(i)+new_y(i+1));
+for i=1:szyq(2)-1;
+    s=s+1/2*h*(yq(i)+yq(i+1));
 end
 display(s)
 end
