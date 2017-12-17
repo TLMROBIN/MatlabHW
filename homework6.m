@@ -1,10 +1,10 @@
 a=input('input the upper limit of the calculus');
 b=input('input the lower limit of the calculus');
 syms x
-f=sym(input('input the integrand'));%ÊäÈëµÄº¯ÊıÖĞ×Ô±äÁ¿±ØĞëÊÇx
-xspace=(b-a)/1000
+f=sym(input('input the integrand'));%è¾“å…¥çš„å‡½æ•°ä¸­è‡ªå˜é‡å¿…é¡»æ˜¯x
+xspace=(b-a)/1000ï¼›
 X=a:xspace:b;
-integral=0.0
+integral=0.0ï¼›
 for i=1:1000
     integral=integral+(subs(f,x,X(i+1))+subs(f,x,X(i)))/2*xspace;
 end
