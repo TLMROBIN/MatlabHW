@@ -2,7 +2,7 @@ function output = JIFEN(x,y,a,b)
 %output = integral y=f(x) from a to b
 bin_width = 0.001;
 a = 1.0* a; b = 1.0*b;
-delta_x = x(2) - x(1);
+delta_x = min(diff(x));
 % If the value of each point in the counting of integral 
 % is not enough (deltax>bin_width), the value is added to the integral by the 
 % interpolation method. 
@@ -14,7 +14,7 @@ else
     data_flt = data( data(:,1) >= a & data(:,1) <= b, :);
     xq = data_flt(:,1);
     yq = data_flt(:,2);
-    bin_width = xq(2) - xq(1);
+    bin_width = min(diff(xq));
 end
 
 %lets integral yq v. xq
