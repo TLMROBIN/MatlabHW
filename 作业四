@@ -1,0 +1,32 @@
+data=importdata('lamost.csv');
+alldata=data.data;
+newdata=[];
+for n=1:43455
+    if alldata(n,5)>4 && 4000<alldata(n,3)<8000
+        newdata(n,:)=alldata(n,:);
+    end
+end
+for n=1:43454
+    if newdata(n,10)>0&newdata(n,10)<50
+        fanwei(n)=newdata(n,10);
+    end
+end
+fanwei=fanwei(fanwei~=0);  
+figure
+scatter(newdata(:,1),newdata(:,2),6);
+title('ra和rec的散点图')
+xlabel('ra')
+ylabel('rec')
+figure(2)
+scatter(newdata(:,3),newdata(:,5),6,newdata(:,7));
+title('teff和logg的散点图')
+xlabel('teff')
+ylabel('logg')
+figure(3)
+hist(fanwei)
+title('rverr 在0到50之间的柱状分布图')
+xlabel('rverr的值')
+ylabel('rever出现的次数')
+
+
+
