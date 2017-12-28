@@ -1,0 +1,11 @@
+%以下所有皆为国际单位（kg/m/N）
+m1=input('m1=');
+dm1=input('dm1(质量误差)=');
+m2=input('m2=');
+dm2=input('dm2(质量误差)=');
+r=input('r=');
+dr=input('dr(距离误差)=');
+disp('万有引力为\n');
+F=yl(m1,m2,r)
+disp('误差为\n');
+DF=wc(m1,m2,r,dm1,dm2,dr)
