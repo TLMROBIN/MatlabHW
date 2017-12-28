@@ -8,4 +8,4 @@ dr=input('dr(距离误差)=');
 disp('万有引力为\n');
 F=yl(m1,m2,r)
 disp('误差为\n');
-DF=wc(m1,m2,r,dm1,dm2,dr)
+DF=df(m1,m2,r,dm1,dm2,dr)
